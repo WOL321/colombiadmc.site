@@ -88,11 +88,12 @@
 </head>
 <body>
 
-   <div class="music-sidebar" style="position: fixed; right: 0; top: 50%; z-index: 2000;">
-    <iframe width="0" height="0" 
+   <div class="music-sidebar" style="position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 2000; background: #000; border: 2px solid #ffc837; border-radius: 8px 0 0 8px;">
+    <!-- We set width/height to 100x50 so the YouTube play button is visible and clickable -->
+    <iframe width="100" height="50" 
             src="https://www.youtube.com/embed/onFfrB50Y8w?autoplay=1&loop=1&playlist=onFfrB50Y8w" 
             frameborder="0" 
-            allow="autoplay">
+            allow="autoplay; encrypted-media">
     </iframe>
 </div>
 </div>
