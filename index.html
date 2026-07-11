@@ -30,10 +30,9 @@
        .bg-alt { background-color: var(--bg-surface); }
        
        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-       @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
-       .town-card { animation: float 6s ease-in-out infinite; }
-       .gov-pill { animation: float 7s ease-in-out infinite; }
-       .pijao-card { animation: float 8s ease-in-out infinite; }
+       @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+       .town-card { animation: float 5s ease-in-out infinite; will-change: transform; }
+       .gov-pill { animation: float 6s ease-in-out infinite; will-change: transform; }
        
        /* Music Sidebar Styles */
        .music-sidebar-left { position: fixed; left: 0; top: 50%; transform: translateY(-50%); z-index: 2000; }
@@ -102,14 +101,14 @@
        .pijao-card:hover { background-color: #141a24; border-left-color: #ffd254; box-shadow: 0 8px 20px rgba(255, 200, 55, 0.1); }
        .pijao-card h3 { font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
        .pijao-card p { color: var(--text-muted); font-size: 0.95rem; }
-       .town-card { background-color: var(--bg-card); border: 1px solid rgba(255,255,255,0.02); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; height: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1); }
-       .town-card:hover { transform: translateY(-8px); box-shadow: 0 25px 40px rgba(0,0,0,0.5), 0 0 30px rgba(255, 200, 55, 0.15); border-color: rgba(255,200,55,0.3); }
+       .town-card { background-color: var(--bg-card); border: 1px solid rgba(255,255,255,0.02); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; height: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: box-shadow 0.3s ease, border-color 0.3s ease; }
+       .town-card:hover { box-shadow: 0 25px 40px rgba(0,0,0,0.5), 0 0 30px rgba(255, 200, 55, 0.15); border-color: rgba(255,200,55,0.3); }
        .town-img-box { width: 100%; aspect-ratio: 16/9; background-color: #161d2b; display: flex; align-items: center; justify-content: center; font-size: 3rem; border-bottom: 2px solid var(--bg-surface); }
        .town-info { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
        .town-info h3 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem; color: #fff; }
        .town-info p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
-       .gov-pill { background-color: var(--bg-card); padding: 2rem; border-top: 3px solid var(--imperial-gold); border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: all 0.3s ease; }
-       .gov-pill:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 20px rgba(255, 200, 55, 0.1); }
+       .gov-pill { background-color: var(--bg-card); padding: 2rem; border-top: 3px solid var(--imperial-gold); border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: box-shadow 0.3s ease; }
+       .gov-pill:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 20px rgba(255, 200, 55, 0.1); }
        .gov-pill h4 { font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 0.5rem; color: #fff; letter-spacing: 0.5px; }
        .gov-pill p { color: var(--text-muted); font-size: 0.9rem; }
        .law-banner { background: linear-gradient(90deg, #5c0606 0%, #1e0303 100%); border: 1px solid var(--colombia-red); border-radius: 4px; padding: 3.5rem; text-align: center; margin-top: 2rem; transition: all 0.3s ease; }
