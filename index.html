@@ -8,8 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 <style>
 /* ============================================
    THE COLOMBIAN EMPIRE — Shared Design System
@@ -255,53 +253,6 @@ body {
   100% { box-shadow: 0 0 15px 2px rgba(255, 200, 55, 0.4); border-color: rgba(255, 200, 55, 0.6); }
 }
 
-/* ---------- Crown Treasury widget ---------- */
-.treasury-box { background-color: #111622; border: 1px solid rgba(255, 200, 55, 0.15); border-radius: 4px; max-width: 480px; margin: 0 auto; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.4); transition: all 0.4s ease; }
-.treasury-box:hover { border-color: rgba(255, 200, 55, 0.35); box-shadow: 0 20px 45px rgba(0,0,0,0.5), 0 0 25px rgba(255, 200, 55, 0.08); }
-.treasury-head { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 2rem; border-bottom: 1px solid rgba(255,200,55,0.1); }
-.treasury-head .sub-title { margin-bottom: 0; }
-.treasury-seal { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; background: radial-gradient(circle at 35% 30%, #1c2130, #0b0e14); border: 1px solid rgba(255,200,55,0.35); box-shadow: inset 0 0 12px rgba(255,200,55,0.08); color: #ffc837; }
-.treasury-balance { padding: 2rem 2rem 1.25rem; }
-.treasury-balance .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: #8898aa; margin-bottom: 0.5rem; }
-.treasury-balance .amount { font-family: 'Cinzel', serif; font-weight: 900; font-size: 2.75rem; color: #fff; display: flex; align-items: baseline; gap: 0.5rem; }
-.treasury-balance .amount .unit { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 700; color: #ffc837; letter-spacing: 1px; }
-.treasury-balance .delta { margin-top: 0.6rem; font-size: 0.8rem; font-weight: 700; color: #4ade80; }
-.treasury-balance .delta span { color: #8898aa; font-weight: 400; }
-.treasury-stats { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255,200,55,0.1); border-bottom: 1px solid rgba(255,200,55,0.1); }
-.treasury-stats .stat { padding: 1rem 2rem; border-right: 1px solid rgba(255,200,55,0.1); }
-.treasury-stats .stat:last-child { border-right: none; }
-.treasury-stats .k { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1.2px; color: #8898aa; margin-bottom: 0.35rem; }
-.treasury-stats .v { font-family: 'Cinzel', serif; font-weight: 700; color: #ffc837; font-size: 1.05rem; }
-.treasury-ledger { padding: 1.25rem 2rem 1.75rem; }
-.treasury-ledger .ledger-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: #8898aa; margin-bottom: 0.75rem; }
-.treasury-entry { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
-.treasury-entry:last-child { border-bottom: none; }
-.treasury-entry .left { display: flex; gap: 0.65rem; align-items: flex-start; }
-.treasury-entry .icon { width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; }
-.treasury-entry .icon.in { background: rgba(74,222,128,0.12); color: #4ade80; }
-.treasury-entry .icon.out { background: rgba(220,38,38,0.15); color: #f87171; }
-.treasury-entry .desc .title { font-size: 0.85rem; color: #f1f5f9; line-height: 1.3; }
-.treasury-entry .desc .meta { font-size: 0.7rem; color: #8898aa; margin-top: 0.15rem; }
-.treasury-entry .amt { font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 700; white-space: nowrap; margin-top: 0.1rem; }
-.treasury-entry .amt.in { color: #4ade80; }
-.treasury-entry .amt.out { color: #f87171; }
-.treasury-form { padding: 1.25rem 2rem 1.75rem; border-top: 1px solid rgba(255,200,55,0.1); }
-.treasury-form .form-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: #8898aa; margin-bottom: 0.85rem; }
-.treasury-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 0.6rem; }
-.treasury-form input, .treasury-form select {
-  width: 100%; background-color: #0b0e14; border: 1px solid rgba(255,200,55,0.18); border-radius: 4px;
-  padding: 0.65rem 0.8rem; color: #f1f5f9; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem;
-}
-.treasury-form input:focus, .treasury-form select:focus { outline: none; border-color: #ffc837; }
-.treasury-form input::placeholder { color: #5a6478; }
-.treasury-form .form-title-input { grid-column: 1 / -1; }
-.treasury-form .form-meta-input { grid-column: 1 / -1; }
-.treasury-form .form-submit { grid-column: 1 / -1; margin-top: 0.4rem; width: 100%; text-align: center; padding: 0.75rem; font-size: 0.75rem; }
-.treasury-form .form-status { font-size: 0.75rem; margin-top: 0.6rem; min-height: 1em; }
-.treasury-form .form-status.ok { color: #4ade80; }
-.treasury-form .form-status.err { color: #f87171; }
-.treasury-form .form-divider { border: none; border-top: 1px dashed rgba(255,200,55,0.15); margin: 1rem 0; }
-
 </style>
 </head>
 <body>
@@ -322,7 +273,6 @@ body {
     <li><a href="/#domain">Territory</a></li>
     <li><a href="/#showcase">The Capital</a></li>
     <li><a href="/#cabinet">The Cabinet</a></li>
-    <li><a href="/#treasury">Treasury</a></li>
     <li><a href="/#expansion">Grants &amp; Law</a></li>
     <li><a href="sports.html">Sports Hub</a></li>
     <li><a href="https://discord.gg/YUyHgnpXwj" target="_blank">Discord</a></li>
@@ -445,61 +395,6 @@ body {
   </div>
 </section>
 
-<section id="treasury" class="section container">
-  <div class="center-header">
-    <span class="sub-title">Ministry of Finance</span>
-    <h2 class="section-title">The Crown Treasury</h2>
-    <p class="section-desc">A running record of gold entering and leaving the Crown's reserve — grants paid, taxes collected, and infrastructure funded.</p>
-  </div>
-  <div class="treasury-box">
-    <div class="treasury-head">
-      <span class="sub-title">Live Reserve</span>
-      <div class="treasury-seal">&#10086;</div>
-    </div>
-    <div class="treasury-balance">
-      <div class="label">Current Balance</div>
-      <div class="amount"><span id="treasuryBalance">0</span><span class="unit">GOLD</span></div>
-      <div class="delta" id="treasuryDelta">&#9650; 0.0% <span>since last cycle</span></div>
-    </div>
-    <div class="treasury-stats">
-      <div class="stat"><div class="k">Grants Paid</div><div class="v" id="treasuryGrantsPaid">0g</div></div>
-      <div class="stat"><div class="k">Tax Revenue</div><div class="v" id="treasuryTaxRevenue">0g</div></div>
-    </div>
-    <div class="treasury-ledger">
-      <div class="ledger-title">Recent Ledger</div>
-      <div id="treasuryEntries"></div>
-    </div>
-    <div class="treasury-form">
-      <div class="form-title">Add an Entry</div>
-      <div class="form-row">
-        <input type="text" id="tfTitle" class="form-title-input" placeholder="What happened (e.g. Founding grant — Riohacha)" maxlength="80">
-      </div>
-      <div class="form-row">
-        <input type="text" id="tfMeta" class="form-meta-input" placeholder="Detail (e.g. Mayor Funding Directive)" maxlength="60">
-      </div>
-      <div class="form-row">
-        <select id="tfDirection">
-          <option value="in">Gold In (+)</option>
-          <option value="out">Gold Out (−)</option>
-        </select>
-        <input type="number" id="tfAmount" placeholder="Amount (gold)" min="1" step="1">
-      </div>
-      <div class="form-row">
-        <select id="tfCategory">
-          <option value="grant">Grant</option>
-          <option value="tax">Tax</option>
-          <option value="infrastructure">Infrastructure</option>
-          <option value="toll">Toll</option>
-          <option value="other">Other</option>
-        </select>
-        <input type="password" id="tfPasscode" placeholder="Passcode">
-      </div>
-      <button class="btn btn-primary form-submit" id="tfSubmit">Add to Ledger</button>
-      <div class="form-status" id="tfStatus"></div>
-    </div>
-  </div>
-</section>
-
 <section id="expansion" class="section container">
   <div class="grant-section">
     <span class="sub-title" style="color: #fff;">The Mayor Funding Directive</span>
@@ -534,153 +429,6 @@ document.querySelectorAll('.section, .town-card, .gov-pill').forEach(el => {
   el.style.opacity = '0';
   observer.observe(el);
 });
-
-/* ---------- Crown Treasury (shared, live for every visitor) ----------
-   1. Create a free Firebase project at https://console.firebase.google.com
-   2. Enable "Realtime Database" (Build > Realtime Database > Create Database)
-   3. Project settings > General > "Your apps" > add a Web app > copy the config below
-   4. In Realtime Database > Rules, set:
-        { "rules": { "treasury": { ".read": true, ".write": true } } }
-      (This makes the treasury data publicly readable/writable — the passcode below
-      only gates the form UI, it is not real security. See chat notes.)
-   5. Replace the placeholder values below and pick your own passcode.
-*/
-const firebaseConfig = {// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAZoz_xPkJRXTlEWSHLVCOIB7ZGccWGVhA",
-  authDomain: "yesss-dde7a.firebaseapp.com",
-  projectId: "yesss-dde7a",
-  storageBucket: "yesss-dde7a.firebasestorage.app",
-  messagingSenderId: "72658280602",
-  appId: "1:72658280602:web:d68e9e9aea8db7e050ff23",
-  measurementId: "G-LWK2MNYN8E"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-};
-const TREASURY_PASSCODE = "CROWN2026"; // change this to your own passcode
-const TREASURY_STARTING_BALANCE = 2200; // reserve before any ledger entries
-
-let treasuryEntriesCache = [];
-
-if (typeof firebase !== "undefined" && firebaseConfig.apiKey !== "YOUR_API_KEY") {
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
-  const entriesRef = db.ref('treasury/entries');
-
-  entriesRef.limitToLast(50).on('value', (snapshot) => {
-    const val = snapshot.val() || {};
-    treasuryEntriesCache = Object.entries(val)
-      .map(([key, e]) => ({ key, ...e }))
-      .sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
-    renderTreasury();
-  });
-
-  const submitBtn = document.getElementById('tfSubmit');
-  if (submitBtn) {
-    submitBtn.addEventListener('click', () => {
-      const title = document.getElementById('tfTitle').value.trim();
-      const meta = document.getElementById('tfMeta').value.trim();
-      const direction = document.getElementById('tfDirection').value;
-      const category = document.getElementById('tfCategory').value;
-      const amount = parseInt(document.getElementById('tfAmount').value, 10);
-      const passcode = document.getElementById('tfPasscode').value;
-      const statusEl = document.getElementById('tfStatus');
-
-      if (passcode !== ueq_thegoat) {
-        statusEl.textContent = "Incorrect passcode.";
-        statusEl.className = "form-status err";
-        return;
-      }
-      if (!title || !amount || amount <= 0) {
-        statusEl.textContent = "Enter a title and a valid amount.";
-        statusEl.className = "form-status err";
-        return;
-      }
-
-      entriesRef.push({
-        dir: direction,
-        category,
-        title,
-        meta: meta || "Just now",
-        amount,
-        timestamp: Date.now()
-      }).then(() => {
-        statusEl.textContent = "Added to the ledger.";
-        statusEl.className = "form-status ok";
-        document.getElementById('tfTitle').value = '';
-        document.getElementById('tfMeta').value = '';
-        document.getElementById('tfAmount').value = '';
-        document.getElementById('tfPasscode').value = '';
-      }).catch((err) => {
-        statusEl.textContent = "Couldn't save — try again.";
-        statusEl.className = "form-status err";
-      });
-    });
-  }
-} else {
-  // Firebase isn't configured yet — show a friendly placeholder instead of a blank widget.
-  const statusEl = document.getElementById('tfStatus');
-  if (statusEl) {
-    statusEl.textContent = "Treasury isn't connected yet — add your Firebase config in the script to activate it.";
-    statusEl.className = "form-status err";
-  }
-}
-
-function renderTreasury() {
-  const treasuryEntriesEl = document.getElementById('treasuryEntries');
-  if (treasuryEntriesEl) {
-    treasuryEntriesEl.innerHTML = '';
-    treasuryEntriesCache.forEach(e => {
-      const el = document.createElement('div');
-      el.className = 'treasury-entry';
-      el.innerHTML = `
-        <div class="left">
-          <div class="icon ${e.dir}">${e.dir === 'in' ? '&#8593;' : '&#8595;'}</div>
-          <div class="desc">
-            <div class="title">${e.title}</div>
-            <div class="meta">${e.meta}</div>
-          </div>
-        </div>
-        <div class="amt ${e.dir}">${e.dir === 'in' ? '+' : '-'}${e.amount}g</div>
-      `;
-      treasuryEntriesEl.appendChild(el);
-    });
-  }
-
-  const netChange = treasuryEntriesCache.reduce((sum, e) => sum + (e.dir === 'in' ? e.amount : -e.amount), 0);
-  const treasuryBalanceValue = TREASURY_STARTING_BALANCE + netChange;
-  const grantsPaidTotal = treasuryEntriesCache.filter(e => e.category === 'grant').reduce((s, e) => s + e.amount, 0);
-  const taxRevenueTotal = treasuryEntriesCache.filter(e => e.category === 'tax').reduce((s, e) => s + e.amount, 0);
-  const deltaPct = TREASURY_STARTING_BALANCE > 0 ? (netChange / TREASURY_STARTING_BALANCE) * 100 : 0;
-
-  const grantsPaidEl = document.getElementById('treasuryGrantsPaid');
-  if (grantsPaidEl) grantsPaidEl.textContent = grantsPaidTotal.toLocaleString() + 'g';
-
-  const taxRevenueEl = document.getElementById('treasuryTaxRevenue');
-  if (taxRevenueEl) taxRevenueEl.textContent = taxRevenueTotal.toLocaleString() + 'g';
-
-  const deltaEl = document.getElementById('treasuryDelta');
-  if (deltaEl) {
-    const up = deltaPct >= 0;
-    deltaEl.innerHTML = `${up ? '&#9650;' : '&#9660;'} ${Math.abs(deltaPct).toFixed(1)}% <span>since last cycle</span>`;
-    deltaEl.style.color = up ? '#4ade80' : '#f87171';
-  }
-
-  const treasuryBalanceEl = document.getElementById('treasuryBalance');
-  if (treasuryBalanceEl) {
-    treasuryBalanceEl.textContent = treasuryBalanceValue.toLocaleString();
-  }
-}
 </script>
 
 </body>
